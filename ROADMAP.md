@@ -1,59 +1,97 @@
 # Roadmap
 
-    > **Legend:** ✅ Done · 🚧 In progress · 🗓 Planned · 💭 Exploring
+> **Legend:** ✅ Shipped · 🚧 In progress · 🗓 Planned · 💭 Exploring
 
-    ---
+Priorities shift based on community feedback — vote with 👍 on issues to influence what ships next.
 
-    ## v1.0 — Foundation ✅
+---
 
-    _Released July 2025_
+## v1.0 — Foundation ✅
 
-    - ✅ `homekit-cli` — full terminal interface for Apple Home
-    - ✅ `homekit-mcp` — MCP server (stdio transport) for Claude Desktop, Cursor, Windsurf
-    - ✅ `@openclaw/homekit` — @openclaw plugin
-    - ✅ macOS companion app on the App Store
-    - ✅ Scene create, import, and export as JSON
-    - ✅ Automation list and trigger
-    - ✅ Multi-Home support (`homekit home switch`)
+*Shipped May 2025*
 
-    ---
+- ✅ `homekit-cli` — full terminal interface for Apple Home
+- ✅ `homekit-mcp` — MCP server (stdio) for Claude Desktop, Cursor, Windsurf
+- ✅ `@openclaw/homekit` — @openclaw plugin
+- ✅ macOS App on the App Store
+- ✅ Scene create, import, export as JSON
+- ✅ Automation list and trigger
+- ✅ Multi-Home support
 
-    ## v1.1 — Developer Experience 🗓
+---
 
-    _Target: Q3 2025_
+## v1.1 — Shared Core ✅
 
-    - 🗓 **Accessory aliases** — `homekit alias lr "Living Room Lights"`
-    - 🗓 **Scheduled commands** — `homekit schedule "08:00" scene "Good Morning"`
-    - 🗓 **Scene diff** — `homekit scene diff a.json b.json`
-    - 🗓 **Accessory groups** — `homekit set @lights off`
-    - 🗓 **HTTP MCP transport** — Alternative to stdio for remote agent setups
-    - 🗓 **`homekit status`** — Single-command Home summary
-    - 🗓 **Log/history** — Record every command and agent action with timestamps
+*Shipped July 2025*
 
-    ---
+- ✅ `@homekit/core` — shared client, types, and auth manager
+- ✅ Improved JSON output with full accessory metadata
+- ✅ CodeQL and Dependabot enabled
+- ✅ Interactive `homekit scene create`
 
-    ## v2.0 — Platform Expansion 💭
+---
 
-    _Target: 2026_
+## v1.2 — Power User CLI 🗓
 
-    - 💭 **Shortcuts integration** — Trigger Homekit from Apple Shortcuts
-    - 💭 **Menu bar app** — Quick-access Home control
-    - 💭 **Multi-agent support** — Multiple simultaneous MCP connections
-    - 💭 **REST API mode** — `homekit serve`
-    - 💭 **Plugin SDK** — Third-party tool and command extensions
-    - 💭 **Web dashboard** — Browser-based UI for teams and power users
+*Target: Q3 2025*
 
-    ---
+- 🗓 **`homekit status`** — single-command full Home summary
+- 🗓 **Accessory aliases** — `homekit alias lr "Living Room Lights"`
+- 🗓 **Scheduled commands** — `homekit schedule "08:00" scene "Good Morning"`
+- 🗓 **Scene diff** — `homekit scene diff a.json b.json`
+- 🗓 **Accessory groups** — `homekit set @lights off`
+- 🗓 **Log/history** — timestamped record of every command and agent action
 
-    ## Community Requests 💭
+---
 
-    | Request | Issue |
-    |---------|-------|
-    | Support for Matter accessories | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
-    | Windows / Linux CLI | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
-    | VS Code extension | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
-    | Claude.ai web integration | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
-    | Home energy monitoring | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+## v1.3 — MCP Expansion 🗓
 
-    [Open a feature request →](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml)
-    
+*Target: Q4 2025*
+
+- 🗓 **HTTP MCP transport** — alternative to stdio for remote agent setups
+- 🗓 **`homekit_get_sensor`** — read temperature, humidity, motion, contact sensors
+- 🗓 **`homekit_list_rooms`** — room-aware accessory grouping
+- 🗓 **Camera snapshots** — `homekit_get_camera_snapshot` (image output)
+- 🗓 **Streaming state** — push accessory changes to agents via SSE
+
+---
+
+## v2.0 — Platform 💭
+
+*Target: 2026*
+
+- 💭 **Menu bar app** — quick-access Home control
+- 💭 **Multi-agent support** — multiple simultaneous MCP connections
+- 💭 **REST API mode** — `homekit serve`
+- 💭 **Plugin SDK** — third-party tools and commands
+- 💭 **Web dashboard** — browser-based UI for teams and power users
+- 💭 **Shortcuts integration** — trigger Homekit from Apple Shortcuts
+- 💭 **iOS companion** — iPhone control via Homekit agent
+
+---
+
+## Community requests
+
+*Vote with 👍 on the linked issues*
+
+| Request | Link |
+|---|---|
+| Matter accessory support | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+| Windows / Linux CLI | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+| VS Code extension | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+| Home energy monitoring | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+| Claude.ai web integration | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+| OpenAI plugin | [Vote](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) |
+
+[Open a feature request →](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml)
+
+---
+
+## Priority model
+
+1. **Security and stability** — crashes and data loss always first
+2. **Community votes** — 👍 on issues are a strong signal
+3. **Contributor PRs** — items with an open PR move faster
+4. **Strategic fit** — features that deepen the CLI ↔ MCP ↔ App platform story
+
+Follow the repo (**Watch → Custom → Releases**) to get notified.

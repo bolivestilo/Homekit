@@ -1,34 +1,32 @@
 {
-  "name": "homekit-mcp",
+  "name": "@homekit/core",
   "version": "1.1.0",
-  "description": "MCP server — give any AI agent direct control over Apple Home",
+  "description": "Shared HomeKit bridge, types, and auth manager for the Homekit ecosystem",
   "homepage": "https://homekit.builders",
   "repository": {
     "type": "git",
     "url": "https://github.com/bolivestilo/Homekit.git",
-    "directory": "packages/mcp"
+    "directory": "packages/core"
   },
   "author": "bolivestilo <https://github.com/bolivestilo>",
   "license": "MIT",
-  "bin": {
-    "homekit-mcp": "./dist/index.js"
-  },
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "start": "node dist/index.js",
     "clean": "rm -rf dist *.tsbuildinfo",
     "typecheck": "tsc --noEmit",
     "test": "node --test dist/**/*.test.js"
   },
-  "dependencies": {
-    "@homekit/core": "*",
-    "zod": "^3.23.0"
-  },
   "keywords": [
-    "mcp", "homekit", "apple-home", "ai-agent",
-    "model-context-protocol", "claude", "cursor", "windsurf"
+    "homekit", "apple-home", "mcp", "smart-home", "typescript"
   ],
   "engines": { "node": ">=18" }
 }

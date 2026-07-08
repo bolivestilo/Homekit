@@ -1,27 +1,38 @@
 {
-      "name": "homekit",
-      "version": "1.0.0",
-      "description": "Control your Apple Home with any AI agent — CLI, MCP server, and @openclaw plugin",
-      "homepage": "https://homekit.builders",
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/bolivestilo/Homekit.git"
-      },
-      "author": "bolivestilo",
-      "license": "MIT",
-      "private": true,
-      "workspaces": [
-        "packages/*"
-      ],
-      "scripts": {
-        "build": "npm run build --workspaces",
-        "dev": "npm run dev --workspaces --if-present",
-        "lint": "npm run lint --workspaces --if-present",
-        "test": "npm run test --workspaces --if-present",
-        "typecheck": "npm run typecheck --workspaces --if-present"
-      },
-      "engines": {
-        "node": ">=18"
-      }
-    }
-    
+  "name": "homekit",
+  "version": "1.1.0",
+  "description": "Homekit gives any AI agent direct, physical control over Apple Home. Flip lights. Lock doors. Read sensors. Through a single open interface.",
+  "homepage": "https://homekit.builders",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bolivestilo/Homekit.git"
+  },
+  "author": "bolivestilo <https://github.com/bolivestilo>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "dev": "npm run dev --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present && rm -rf node_modules"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "homekit",
+    "apple-home",
+    "mcp",
+    "ai-agent",
+    "cli",
+    "typescript",
+    "macos",
+    "smart-home",
+    "model-context-protocol"
+  ]
+}

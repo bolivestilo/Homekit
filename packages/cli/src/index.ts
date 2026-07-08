@@ -1,55 +1,41 @@
 #!/usr/bin/env node
-    /**
-     * homekit-cli — Control your Apple Home from the command line.
-     * https://homekit.builders
-     */
+/**
+ * homekit-cli — Control your Apple Home from the command line.
+ *
+ * https://homekit.builders
+ * https://github.com/bolivestilo/Homekit
+ */
 
-    const [, , command, ...args] = process.argv;
+import { Command } from 'commander';
+import { registerAuth } from './commands/auth.js';
+import { registerList } from './commands/list.js';
+import { registerGet } from './commands/get.js';
+import { registerSet } from './commands/set.js';
+import { registerScene } from './commands/scene.js';
+import { registerAutomation } from './commands/automation.js';
+import { registerHome } from './commands/home.js';
+import { registerStatus } from './commands/status.js';
 
-    if (!command || command === '--help' || command === '-h') {
-      printHelp();
-      process.exit(0);
-    }
+const program = new Command();
 
-    if (command === '--version' || command === '-v') {
-      console.log('homekit-cli v1.0.0');
-      process.exit(0);
-    }
+program
+  .name('homekit')
+  .description('Control your Apple Home from the command line.')
+  .version('1.1.0', '--version', 'Print version and exit')
+  .option('--json', 'Output as machine-readable JSON')
+  .option('--verbose', 'Enable verbose debug logging')
+  .addHelpText('after', `
+Documentation:  https://homekit.builders/docs
+Repository:     https://github.com/bolivestilo/Homekit
+`);
 
-    function printHelp() {
-      console.log(`
-    homekit v1.0.0 — https://homekit.builders
+registerAuth(program);
+registerList(program);
+registerGet(program);
+registerSet(program);
+registerScene(program);
+registerAutomation(program);
+registerHome(program);
+registerStatus(program);
 
-    Usage: homekit <command> [options]
-
-    Commands:
-      auth                      Authorize with Apple Home via macOS app
-      list                      List all accessories with live state
-      get <name>                Get the state of an accessory
-      set <name> <value>        Control an accessory (on/off, 0-100)
-      scene [name]              List or activate a scene
-      scene create              Create a new scene
-      scene import <file>       Import scenes from a JSON file
-      scene export              Export all scenes as JSON
-      automation list           List all automations
-      automation run <name>     Trigger an automation
-      home list                 List all Homes
-      home switch <name>        Switch active Home
-
-    Flags:
-      --json        Output as machine-readable JSON
-      --verbose     Enable verbose debug logging
-      --version     Print version
-      --help        Show this help
-
-    Examples:
-      homekit list
-      homekit set "Living Room Lights" on
-      homekit set "Dimmer" 40
-      homekit scene "Good Morning"
-      homekit automation run "Evening Routine"
-
-    Documentation: https://homekit.builders/docs
-    `);
-    }
-    
+program.parse(process.argv);

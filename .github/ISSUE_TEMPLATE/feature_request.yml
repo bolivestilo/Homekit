@@ -1,40 +1,74 @@
 name: Feature Request
-    description: Suggest a new feature or improvement
-    title: "[Feature]: "
-    labels: ["enhancement"]
-    assignees: ["bolivestilo"]
+description: Suggest a new feature or improvement for Homekit
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees: ["bolivestilo"]
 
-    body:
-      - type: markdown
-        attributes:
-          value: Thanks for suggesting a feature!
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting a feature! Please check the [Roadmap](https://github.com/bolivestilo/Homekit/blob/main/ROADMAP.md)
+        and [existing issues](https://github.com/bolivestilo/Homekit/issues) first.
 
-      - type: checkboxes
-        id: preflight
-        attributes:
-          label: Pre-flight checklist
-          options:
-            - label: I searched existing issues and this is not a duplicate
-              required: true
-            - label: I have read the ROADMAP
-              required: true
-
-      - type: textarea
-        id: problem
-        attributes:
-          label: Problem this solves
-        validations:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-flight checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
+        - label: I have read the [ROADMAP](https://github.com/bolivestilo/Homekit/blob/main/ROADMAP.md)
           required: true
 
-      - type: textarea
-        id: solution
-        attributes:
-          label: Proposed solution
-        validations:
-          required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Which component?
+      options:
+        - homekit-cli (new command or flag)
+        - homekit-mcp (new MCP tool)
+        - "@homekit/core (new client API)"
+        - "@openclaw/homekit (new plugin tool)"
+        - macOS App
+        - Documentation
+        - Other
+    validations:
+      required: true
 
-      - type: textarea
-        id: alternatives
-        attributes:
-          label: Alternatives considered
-    
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem this solves
+      description: What pain point or use case does this address?
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe how you'd like this to work.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Any other approaches you've thought about?
+
+  - type: textarea
+    id: example
+    attributes:
+      label: Example usage
+      description: Show what the command / API / tool call would look like.
+      placeholder: |
+        homekit status
+        # → Full live Home summary
+
+        # or
+
+        homekit_get_sensor with name="Living Room Temperature"
+        # → { "type": "temperature", "value": 72, "unit": "F" }
+      render: shell

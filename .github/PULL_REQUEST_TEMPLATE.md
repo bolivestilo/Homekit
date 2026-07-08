@@ -1,30 +1,37 @@
 ## Summary
 
-    <!-- Describe what this PR changes and why. -->
+<!-- What does this PR change and why? -->
 
-    ## Related issues
+## Related issues
 
-    <!-- Fixes #123, Closes #456 -->
+<!-- Fixes #123 · Closes #456 -->
 
-    ## Type of change
+## Type of change
 
-    - [ ] Bug fix
-    - [ ] New feature
-    - [ ] Breaking change
-    - [ ] Documentation update
-    - [ ] Refactor / chore
+- [ ] `feat` — new feature
+- [ ] `fix` — bug fix
+- [ ] `docs` — documentation
+- [ ] `refactor` — no fix or feature
+- [ ] `test` — tests only
+- [ ] `chore` — build, deps, tooling
+- [ ] Breaking change (explain below)
 
-    ## Checklist
+## Checklist
 
-    - [ ] Code follows the project's code style
-    - [ ] Tests added or updated where applicable
-    - [ ] Documentation updated if needed
-    - [ ] `CHANGELOG.md` updated under `[Unreleased]`
-    - [ ] All CI checks pass
+- [ ] `npm run typecheck` passes
+- [ ] `npm test` passes
+- [ ] `CHANGELOG.md` updated under `[Unreleased]`
+- [ ] Documentation updated if behavior changed
+- [ ] PR title follows Conventional Commit format
 
-    ## Testing
+## Testing
 
-    ```bash
-    homekit ...
-    ```
-    
+<!-- Describe how you tested this change. -->
+
+```bash
+homekit ...
+```
+
+## Screenshots / recordings
+
+<!-- For CLI output changes, paste a screenshot or recording. -->

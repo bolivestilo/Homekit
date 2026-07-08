@@ -1,77 +1,94 @@
 name: Bug Report
-    description: Report a bug in Homekit CLI, MCP server, or @openclaw plugin
-    title: "[Bug]: "
-    labels: ["bug", "needs-triage"]
-    assignees: ["bolivestilo"]
+description: Report a bug in homekit-cli, homekit-mcp, @homekit/core, or @openclaw/homekit
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+assignees: ["bolivestilo"]
 
-    body:
-      - type: markdown
-        attributes:
-          value: Thanks for reporting a bug! Please fill out the form below.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug. Please fill out this form as completely as possible.
+        Search [existing issues](https://github.com/bolivestilo/Homekit/issues) before filing.
 
-      - type: checkboxes
-        id: preflight
-        attributes:
-          label: Pre-flight checklist
-          options:
-            - label: I searched existing issues and this is not a duplicate
-              required: true
-            - label: I have updated to the latest version
-              required: true
-
-      - type: dropdown
-        id: component
-        attributes:
-          label: Affected component
-          options:
-            - homekit-cli (CLI)
-            - homekit-mcp (MCP Server)
-            - "@openclaw/homekit (Plugin)"
-            - macOS App
-            - Documentation
-        validations:
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: Pre-flight checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate
+          required: true
+        - label: I updated to the latest version (`npm update -g homekit-cli homekit-mcp`)
+          required: true
+        - label: I read the [documentation](https://homekit.builders/docs)
           required: true
 
-      - type: input
-        id: version
-        attributes:
-          label: Version
-          placeholder: "1.0.0"
-        validations:
-          required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Affected component
+      options:
+        - homekit-cli (CLI)
+        - homekit-mcp (MCP Server)
+        - "@homekit/core (Shared library)"
+        - "@openclaw/homekit (Plugin)"
+        - macOS App
+        - Documentation
+    validations:
+      required: true
 
-      - type: input
-        id: os
-        attributes:
-          label: macOS version
-          placeholder: "macOS 14.5 Sonoma"
-        validations:
-          required: true
+  - type: input
+    id: version
+    attributes:
+      label: Package version
+      placeholder: "1.1.0"
+    validations:
+      required: true
 
-      - type: textarea
-        id: description
-        attributes:
-          label: What happened?
-        validations:
-          required: true
+  - type: input
+    id: node
+    attributes:
+      label: Node.js version
+      placeholder: "v20.11.0"
+    validations:
+      required: true
 
-      - type: textarea
-        id: reproduction
-        attributes:
-          label: Steps to reproduce
-        validations:
-          required: true
+  - type: input
+    id: os
+    attributes:
+      label: macOS version
+      placeholder: "macOS 14.5 Sonoma"
+    validations:
+      required: true
 
-      - type: textarea
-        id: expected
-        attributes:
-          label: Expected behavior
-        validations:
-          required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the bug.
+    validations:
+      required: true
 
-      - type: textarea
-        id: logs
-        attributes:
-          label: Logs
-          render: shell
-    
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `homekit ...`
+        2. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Run with `--verbose` for more detail.
+      render: shell

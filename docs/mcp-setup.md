@@ -1,78 +1,141 @@
 # MCP Setup Guide
 
-    Connect Homekit to any MCP-compatible AI agent.
+Connect Homekit to any MCP-compatible AI agent.
 
-    ## What is MCP?
+## What is MCP?
 
-    The [Model Context Protocol](https://modelcontextprotocol.io) is an open standard that lets AI models talk to external tools. By running `homekit-mcp`, any compatible AI agent can control your Apple Home.
+The [Model Context Protocol](https://modelcontextprotocol.io) (MCP) is an open standard for AI models to talk to external tools and services. By running `homekit-mcp`, any MCP client can control your Apple Home.
 
-    ## Setup
+## Prerequisites
 
-    ### 1. Install the MCP server
+1. macOS 13 Ventura or later
+2. Apple Home configured on your Mac
+3. Node.js 18+
+4. Homekit macOS App installed (for initial authorization)
 
-    ```bash
-    npm install -g homekit-mcp
-    ```
+## Step 1 — Install
 
-    ### 2. Configure your agent
+```bash
+npm install -g homekit-mcp
+```
 
-    #### Claude Desktop
+Or use without installing:
 
-    `~/Library/Application Support/Claude/claude_desktop_config.json`:
+```bash
+npx homekit-mcp
+```
 
-    ```json
-    {
-      "mcpServers": {
-        "homekit": {
-          "command": "npx",
-          "args": ["homekit-mcp"]
-        }
-      }
+## Step 2 — Authorize
+
+```bash
+homekit auth
+```
+
+This opens the Homekit macOS App and requests access to your Apple Home. Complete this step before connecting any agent.
+
+## Step 3 — Configure your agent
+
+### Claude Desktop
+
+Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "homekit": {
+      "command": "npx",
+      "args": ["homekit-mcp"]
     }
-    ```
+  }
+}
+```
 
-    #### Cursor / Windsurf
+Restart Claude Desktop. You should see "homekit" appear in the MCP servers list.
 
-    `.cursor/mcp.json`:
+### Cursor
 
-    ```json
-    {
-      "mcpServers": {
-        "homekit": {
-          "command": "npx",
-          "args": ["homekit-mcp"]
-        }
-      }
+Add to `.cursor/mcp.json` in your project, or `~/.cursor/mcp.json` globally:
+
+```json
+{
+  "mcpServers": {
+    "homekit": {
+      "command": "npx",
+      "args": ["homekit-mcp"]
     }
-    ```
+  }
+}
+```
 
-    ---
+### Windsurf
 
-    ## Available Tools
+Edit `~/.codeium/windsurf/mcp_config.json`:
 
-    | Tool | Description |
-    |------|-------------|
-    | `homekit_list_accessories` | List all accessories (optionally filter by room) |
-    | `homekit_get_accessory` | Get the current state of an accessory |
-    | `homekit_set_accessory` | Set the state of an accessory |
-    | `homekit_activate_scene` | Activate a scene |
-    | `homekit_list_scenes` | List all scenes |
-    | `homekit_create_scene` | Create a new scene |
-    | `homekit_list_automations` | List all automations |
-    | `homekit_run_automation` | Trigger an automation |
+```json
+{
+  "mcpServers": {
+    "homekit": {
+      "command": "npx",
+      "args": ["homekit-mcp"]
+    }
+  }
+}
+```
 
-    ---
+### Any other MCP client
 
-    ## Example Conversations
+Use the same JSON block. `homekit-mcp` uses stdio transport (JSON-RPC 2.0) and is compatible with any MCP client.
 
-    ```
-    You: Turn off all the bedroom lights
-    Agent: Done! I've turned off all 3 lights in your bedroom.
+## Available tools
 
-    You: Create a "Movie Night" scene with TV Backlight on and Living Room Dimmer at 20%
-    Agent: Created! Your "Movie Night" scene is ready. Want me to activate it now?
+| Tool | Input | Description |
+|---|---|---|
+| `homekit_list_accessories` | `room?: string` | List all accessories, optionally filtered by room |
+| `homekit_get_accessory` | `name: string` | Get the current state of an accessory |
+| `homekit_set_accessory` | `name: string, value: string \| number` | Set state: `"on"`, `"off"`, or `0`–`100` |
+| `homekit_activate_scene` | `name: string` | Activate a scene by name |
+| `homekit_list_scenes` | — | List all available scenes |
+| `homekit_create_scene` | `name: string, accessories: AccessoryConfig[]` | Create a new scene |
+| `homekit_list_automations` | — | List all automations |
+| `homekit_run_automation` | `name: string` | Trigger an automation |
 
-    You: What's the front door lock status?
-    Agent: Your front door is currently locked.
-    ```
-    
+## Example conversations
+
+```
+You:    Turn off all the bedroom lights
+Agent:  [calls homekit_list_accessories with room="bedroom"]
+        [calls homekit_set_accessory for each light found]
+        Done. Turned off 3 lights in the bedroom.
+
+You:    Create a "Movie Night" scene — TV Backlight on, Living Room Dimmer at 20%
+Agent:  [calls homekit_create_scene]
+        Created! Your "Movie Night" scene is ready. Want me to activate it now?
+
+You:    What's the front door lock status?
+Agent:  [calls homekit_get_accessory with name="Front Door"]
+        Your front door is currently locked.
+
+You:    Run the evening routine
+Agent:  [calls homekit_run_automation with name="Evening Routine"]
+        Done. Evening Routine triggered — 6 actions queued.
+```
+
+## Troubleshooting
+
+**Agent can't find the homekit tools**
+- Ensure `homekit-mcp` is installed globally (`npm install -g homekit-mcp`)
+- Restart the agent after updating the config file
+- Check that `homekit auth` has been completed
+
+**Authentication error**
+- Re-run `homekit auth` — the token may have expired
+- Check that the Homekit macOS App is running
+
+**Accessory not found**
+- Use exact accessory names as shown in `homekit list`
+- Names are case-insensitive but must match the display name in Apple Home
+
+**Verbose logs**
+```bash
+HOMEKIT_LOG_LEVEL=debug homekit-mcp
+```

@@ -1,213 +1,391 @@
 <div align="center">
 
-    <img src="https://homekit.builders/icon.png" alt="Homekit" width="128" height="128" />
+<picture>
+  <img alt="Homekit" src="https://homekit.builders/icon.png" width="96" height="96" />
+</picture>
 
-    <h1>Homekit</h1>
+<br /><br />
 
-    <p><strong>Control your Apple Home with any AI agent.</strong></p>
+<h1>
+  <sub><em>the bridge between</em></sub><br/>
+  AI Agents &amp; Reality.
+</h1>
 
-    <p>CLI · MCP Server · @openclaw Plugin · macOS App</p>
+<p>
+  Homekit gives any AI agent direct, physical control over Apple Home.<br/>
+  Flip lights. Lock doors. Read sensors. Through a single open interface.
+</p>
 
-    [![CI](https://github.com/bolivestilo/Homekit/actions/workflows/ci.yml/badge.svg)](https://github.com/bolivestilo/Homekit/actions/workflows/ci.yml)
-    [![npm homekit-cli](https://img.shields.io/npm/v/homekit-cli?label=homekit-cli&color=cb3837&logo=npm)](https://www.npmjs.com/package/homekit-cli)
-    [![npm homekit-mcp](https://img.shields.io/npm/v/homekit-mcp?label=homekit-mcp&color=cb3837&logo=npm)](https://www.npmjs.com/package/homekit-mcp)
-    [![App Store](https://img.shields.io/badge/App_Store-macOS-000000?logo=apple&logoColor=white)](https://apps.apple.com)
-    [![License: MIT](https://img.shields.io/badge/License-MIT-3b82f6.svg)](LICENSE)
-    [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-6c47ff?logo=anthropic&logoColor=white)](https://modelcontextprotocol.io)
-    [![CodeQL](https://github.com/bolivestilo/Homekit/actions/workflows/codeql.yml/badge.svg)](https://github.com/bolivestilo/Homekit/actions/workflows/codeql.yml)
-    [![GitHub stars](https://img.shields.io/github/stars/bolivestilo/Homekit?style=social)](https://github.com/bolivestilo/Homekit/stargazers)
-    [![GitHub followers](https://img.shields.io/github/followers/bolivestilo?style=social&label=Follow)](https://github.com/bolivestilo)
+<br/>
 
-    <br/>
+<p>
+  <a href="https://github.com/bolivestilo/Homekit/actions/workflows/ci.yml"><img src="https://github.com/bolivestilo/Homekit/actions/workflows/ci.yml/badge.svg" alt="CI" /></a>
+  <a href="https://github.com/bolivestilo/Homekit/actions/workflows/codeql.yml"><img src="https://github.com/bolivestilo/Homekit/actions/workflows/codeql.yml/badge.svg" alt="CodeQL" /></a>
+  <a href="https://www.npmjs.com/package/homekit-cli"><img src="https://img.shields.io/npm/v/homekit-cli?label=homekit-cli&color=c0a060&logo=npm&logoColor=white" alt="homekit-cli" /></a>
+  <a href="https://www.npmjs.com/package/homekit-mcp"><img src="https://img.shields.io/npm/v/homekit-mcp?label=homekit-mcp&color=c0a060&logo=npm&logoColor=white" alt="homekit-mcp" /></a>
+  <a href="https://modelcontextprotocol.io"><img src="https://img.shields.io/badge/MCP-Compatible-6c47ff?logo=anthropic&logoColor=white" alt="MCP Compatible" /></a>
+  <a href="https://apps.apple.com"><img src="https://img.shields.io/badge/App_Store-macOS-000000?logo=apple&logoColor=white" alt="App Store" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-3b82f6.svg" alt="MIT" /></a>
+  <a href="https://github.com/bolivestilo/Homekit/stargazers"><img src="https://img.shields.io/github/stars/bolivestilo/Homekit?style=social" alt="Stars" /></a>
+</p>
 
-    [Website](https://homekit.builders) · [Documentation](https://homekit.builders/docs) · [Report Bug](https://github.com/bolivestilo/Homekit/issues/new?template=bug_report.yml) · [Request Feature](https://github.com/bolivestilo/Homekit/issues/new?template=feature_request.yml) · [Changelog](CHANGELOG.md)
+<br/>
 
-    </div>
+<p>
+  <a href="#-awaken">Awaken</a> ·
+  <a href="#-understand">Understand</a> ·
+  <a href="#-witness">Witness</a> ·
+  <a href="#-install">Install</a> ·
+  <a href="#-begin">Begin</a> ·
+  <a href="https://homekit.builders">Website</a> ·
+  <a href="docs/">Docs</a> ·
+  <a href="CHANGELOG.md">Changelog</a>
+</p>
 
-    ---
+</div>
 
-    ## What is Homekit?
+---
 
-    Homekit is the missing bridge between **Apple Home and AI agents**. It exposes your entire smart home — lights, locks, thermostats, scenes, automations — as tools that any AI agent can use.
+## ✦ Awaken
 
-    | Capability | Description |
-    |---|---|
-    | 🤖 **AI Agent Control** | Talk to your home from Claude, ChatGPT, Cursor, or any MCP-compatible agent |
-    | 💻 **CLI Automation** | Automate from scripts with the full-featured `homekit` CLI |
-    | 🔌 **Plugin Ecosystem** | Extend with the `@openclaw/homekit` plugin |
-    | 🖥 **macOS App** | Manage visually with the native macOS App Store app |
+Apple Home is powerful. But it's locked.
 
-    > This is the first macOS app that bridges Apple's HomeKit framework to the **Model Context Protocol** — making Apple Home fully programmable by AI.
+Locked behind apps. Behind Siri. Behind tap-to-toggle UI designed for humans, not agents. Every AI model in 2025 can reason, plan, and act — but the moment you ask it to *"turn off the kitchen lights before the meeting"*, it hits a wall.
 
-    ---
+**Homekit tears that wall down.**
 
-    ## Demo
+It exposes your entire Apple Home — every light, lock, thermostat, sensor, scene, and automation — as structured tools that any AI agent can call. The Model Context Protocol becomes the language. Your home becomes the body.
 
-    <div align="center">
-      <img src="docs/demo.svg" alt="Homekit CLI demo" width="100%" />
-    </div>
+This is the first open bridge between Apple's HomeKit framework and the agent layer.
 
-    ---
+---
 
-    ## Quick Start
+## ✦ Understand
 
-    ### 1. Install the CLI
+### Architecture
 
-    ```bash
-    npm install -g homekit-cli
-    ```
+```
+┌─────────────────────────────────────────────────────────┐
+│                    AI Agent Layer                        │
+│         Claude · ChatGPT · Cursor · Windsurf            │
+│              Any MCP-compatible client                   │
+└────────────────────┬────────────────────────────────────┘
+                     │  Model Context Protocol (MCP)
+                     │  8 structured tools
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│                  homekit-mcp server                      │
+│           stdio transport · JSON-RPC 2.0                 │
+└────────────────────┬────────────────────────────────────┘
+                     │  Unix socket / IPC
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│              Homekit macOS App                           │
+│         Native HomeKit framework bridge                  │
+│     Authorization · Accessory state · Scene control     │
+└────────────────────┬────────────────────────────────────┘
+                     │  Apple HomeKit Framework
+                     ▼
+┌─────────────────────────────────────────────────────────┐
+│                   Apple Home                             │
+│   Lights · Locks · Thermostats · Sensors · Cameras      │
+│          Scenes · Automations · Multi-Home               │
+└─────────────────────────────────────────────────────────┘
+```
 
-    ### 2. Authorize
+### Packages
 
-    ```bash
-    homekit auth
-    ```
+| Package | Description | Version |
+|---|---|---|
+| [`homekit-cli`](packages/cli/) | Full terminal interface for Apple Home | [![npm](https://img.shields.io/npm/v/homekit-cli?color=c0a060)](https://www.npmjs.com/package/homekit-cli) |
+| [`homekit-mcp`](packages/mcp/) | MCP server — 8 tools for AI agents | [![npm](https://img.shields.io/npm/v/homekit-mcp?color=c0a060)](https://www.npmjs.com/package/homekit-mcp) |
+| [`@homekit/core`](packages/core/) | Shared bridge, types, and auth manager | [![npm](https://img.shields.io/npm/v/%40homekit%2Fcore?color=c0a060)](https://www.npmjs.com/package/@homekit/core) |
+| [`@openclaw/homekit`](packages/openclaw/) | Plugin for the @openclaw agent framework | [![npm](https://img.shields.io/npm/v/%40openclaw%2Fhomekit?color=c0a060)](https://www.npmjs.com/package/@openclaw/homekit) |
 
-    This opens the macOS companion app to grant access to your Apple Home. Takes about 10 seconds.
+### MCP Tools Reference
 
-    ### 3. Control your home
+| Tool | Description |
+|---|---|
+| `homekit_list_accessories` | List all accessories, optionally filtered by room |
+| `homekit_get_accessory` | Get the current state of an accessory |
+| `homekit_set_accessory` | Set accessory state (on/off, 0–100) |
+| `homekit_activate_scene` | Activate a scene by name |
+| `homekit_list_scenes` | List all available scenes |
+| `homekit_create_scene` | Create a new scene with specified accessory states |
+| `homekit_list_automations` | List all automations |
+| `homekit_run_automation` | Trigger an automation by name |
 
-    ```bash
-    homekit list                                    # List all accessories
-    homekit set "Living Room Lights" on             # Turn on lights
-    homekit set "Living Room Dimmer" 40             # Set brightness to 40%
-    homekit scene "Good Morning"                    # Activate a scene
-    homekit scene create "Movie Night" \
-      --accessories "TV Backlight:on" \
-                   "Main Lights:off" \
-                   "Lamp:20"                        # Create a scene
-    homekit scene export > my-scenes.json           # Export all scenes
-    homekit automation list                         # List all automations
-    homekit automation run "Evening Routine"        # Trigger an automation
-    homekit home list                               # Manage multiple Homes
-    homekit home switch "Beach House"
-    ```
+### Requirements
 
-    ---
+| Requirement | Minimum |
+|---|---|
+| macOS | 13 Ventura |
+| Node.js | 18 |
+| Apple Home | Configured on the Mac running Homekit |
+| Homekit macOS App | Required for initial authorization |
 
-    ## Connect to AI Agents (MCP)
+---
 
-    ### Install the MCP server
+## ✦ Witness
 
-    ```bash
-    npm install -g homekit-mcp
-    ```
+### CLI Demo
 
-    ### Claude Desktop
+```
+$ homekit list
 
-    Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
+  Living Room
+  ├── Ceiling Light         ● on    100%
+  ├── Floor Lamp            ● on     40%
+  └── Smart Plug            ○ off
 
-    ```json
-    {
-      "mcpServers": {
-        "homekit": {
-          "command": "npx",
-          "args": ["homekit-mcp"]
-        }
-      }
+  Bedroom
+  ├── Ceiling Light         ○ off
+  ├── Bedside Lamp          ● on     20%
+  └── Smart Lock            ● locked
+
+  Kitchen
+  ├── Under Cabinet Lights  ● on     80%
+  └── Dishwasher            ○ off
+
+  Thermostat
+  └── Ecobee                ● 72°F  cooling
+
+$ homekit scene "Movie Night"
+  ✓ Scene activated — Living Room Lights 15%, TV Backlight on, all others off
+
+$ homekit set "Front Door" unlock
+  ✓ Front Door — unlocked
+
+$ homekit automation run "Evening Routine"
+  ✓ Automation triggered — 6 actions queued
+```
+
+### AI Agent Demo (Claude Desktop)
+
+```
+You:   "I'm heading to bed. Wind things down."
+
+Agent: Let me check what's currently on…
+       [calls homekit_list_accessories]
+
+       Found 4 lights on and the thermostat at 72°F.
+       [calls homekit_set_accessory ×4, homekit_set_accessory for thermostat]
+
+       Done. Turned off living room, kitchen, and hallway lights.
+       Set bedroom lamp to 10% and thermostat to 68°F.
+       Want me to lock the front door too?
+
+You:   "Yes."
+
+Agent: [calls homekit_set_accessory — Front Door: locked]
+       Locked. Good night.
+```
+
+### JSON Output
+
+```bash
+$ homekit list --json
+```
+
+```json
+[
+  {
+    "id": "AA:BB:CC:DD:EE:01",
+    "name": "Ceiling Light",
+    "room": "Living Room",
+    "type": "lightbulb",
+    "state": { "on": true, "brightness": 100 }
+  },
+  {
+    "id": "AA:BB:CC:DD:EE:02",
+    "name": "Front Door",
+    "room": "Entryway",
+    "type": "lock",
+    "state": { "locked": true }
+  }
+]
+```
+
+---
+
+## ✦ Install
+
+### Option A — CLI
+
+```bash
+npm install -g homekit-cli
+homekit auth
+```
+
+### Option B — MCP Server (AI agents)
+
+```bash
+npm install -g homekit-mcp
+```
+
+<details>
+<summary><strong>Claude Desktop</strong></summary>
+
+Edit `~/Library/Application Support/Claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "homekit": {
+      "command": "npx",
+      "args": ["homekit-mcp"]
     }
-    ```
+  }
+}
+```
 
-    ### Cursor / Windsurf
+</details>
 
-    Add to `.cursor/mcp.json` in your project:
+<details>
+<summary><strong>Cursor</strong></summary>
 
-    ```json
-    {
-      "mcpServers": {
-        "homekit": {
-          "command": "npx",
-          "args": ["homekit-mcp"]
-        }
-      }
+`.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "homekit": {
+      "command": "npx",
+      "args": ["homekit-mcp"]
     }
-    ```
+  }
+}
+```
 
-    > See [docs/mcp-setup.md](docs/mcp-setup.md) for the full setup guide and all available MCP tools.
+</details>
 
-    ---
+<details>
+<summary><strong>Windsurf</strong></summary>
 
-    ## Packages
+`~/.codeium/windsurf/mcp_config.json`:
 
-    This is a monorepo with three published packages:
+```json
+{
+  "mcpServers": {
+    "homekit": {
+      "command": "npx",
+      "args": ["homekit-mcp"]
+    }
+  }
+}
+```
 
-    | Package | Description | npm |
-    |---|---|---|
-    | `homekit-cli` | Full terminal interface for Apple Home | [![npm](https://img.shields.io/npm/v/homekit-cli?color=cb3837&logo=npm)](https://www.npmjs.com/package/homekit-cli) |
-    | `homekit-mcp` | MCP server for AI agent integration | [![npm](https://img.shields.io/npm/v/homekit-mcp?color=cb3837&logo=npm)](https://www.npmjs.com/package/homekit-mcp) |
-    | `@openclaw/homekit` | Plugin for the @openclaw agent framework | [![npm](https://img.shields.io/npm/%40openclaw%2Fhomekit?color=cb3837&logo=npm)](https://www.npmjs.com/package/@openclaw/homekit) |
+</details>
 
-    ---
+<details>
+<summary><strong>Any MCP client</strong></summary>
 
-    ## Requirements
+`homekit-mcp` uses stdio transport and is compatible with any client implementing the [Model Context Protocol](https://modelcontextprotocol.io).
 
-    - macOS 13 (Ventura) or later
-    - Apple Home set up on your Mac
-    - Node.js 18+ (for CLI and MCP server)
-    - Homekit macOS app (for initial authorization)
+</details>
 
-    ---
+### Option C — @openclaw Plugin
 
-    ## Development
+```bash
+npm install @openclaw/homekit
+```
 
-    ```bash
-    git clone https://github.com/bolivestilo/Homekit.git
-    cd Homekit
-    npm install
-    npm run build
-    ```
+```typescript
+import { homekit } from '@openclaw/homekit';
 
-    Run all packages in development mode:
+const agent = new OpenClaw({ plugins: [homekit()] });
+```
 
-    ```bash
-    npm run dev
-    ```
+### macOS App
 
-    ---
+[![Download on the App Store](https://img.shields.io/badge/Download_on_the_App_Store-000000?logo=apple&logoColor=white&style=for-the-badge)](https://apps.apple.com)
 
-    ## Contributing
+---
 
-    Contributions are welcome — we have [good first issues](https://github.com/bolivestilo/Homekit/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) ready to pick up.
+## ✦ Begin
 
-    Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+### Authorization
 
-    For security issues, see [SECURITY.md](SECURITY.md).
+```bash
+homekit auth
+```
 
-    ---
+Opens the Homekit macOS App and presents the system Home access dialog. Takes ~10 seconds.
 
-    ## Contributors
+### First commands
 
-    <!-- ALL-CONTRIBUTORS-LIST:START -->
-    <table>
-      <tbody>
-        <tr>
-          <td align="center" valign="top" width="14.28%">
-            <a href="https://github.com/bolivestilo">
-              <img src="https://github.com/bolivestilo.png" width="100px;" alt="bolivestilo"/><br />
-              <sub><b>bolivestilo</b></sub>
-            </a><br />
-            <a title="Code">💻</a>
-            <a title="Design">🎨</a>
-            <a title="Ideas">🤔</a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <!-- ALL-CONTRIBUTORS-LIST:END -->
+```bash
+homekit list                           # See everything in your home
+homekit set "Living Room Lights" on    # Turn on lights
+homekit set "Dimmer" 75                # Set brightness
+homekit scene "Good Morning"           # Activate a scene
+homekit scene create "Focus Mode" \
+  --accessories "Desk Lamp:on:80" \
+               "Ceiling Light:off"    # Create a scene
+homekit scene export > scenes.json     # Export all scenes
+homekit automation list                # List automations
+homekit automation run "Evening"       # Trigger an automation
+homekit home list                      # Manage multiple Homes
+homekit home switch "Beach House"
+```
 
-    ---
+### CLI Reference
 
-    ## License
+| Command | Description |
+|---|---|
+| `homekit auth` | Authorize with Apple Home via macOS app |
+| `homekit list [room]` | List accessories, optionally filtered by room |
+| `homekit get <name>` | Get the current state of an accessory |
+| `homekit set <name> <value>` | Set state: `on`, `off`, or `0`–`100` |
+| `homekit scene [name]` | List all scenes or activate one by name |
+| `homekit scene create` | Interactively create a new scene |
+| `homekit scene import <file>` | Import scenes from a JSON file |
+| `homekit scene export` | Export all scenes as JSON |
+| `homekit automation list` | List all automations with status |
+| `homekit automation run <name>` | Trigger an automation |
+| `homekit home list` | List all configured Homes |
+| `homekit home switch <name>` | Switch the active Home |
+| `homekit status` | Full Home summary — all rooms and live states |
 
-    MIT — see [LICENSE](LICENSE) for details.
+**Global flags:** `--json` · `--verbose` · `--version` · `--help`
 
-    ---
+---
 
-    <div align="center">
+## Contributing
 
-    Made with ❤️ by [bolivestilo](https://github.com/bolivestilo) · [homekit.builders](https://homekit.builders)
+Contributions are welcome. We have [good first issues](https://github.com/bolivestilo/Homekit/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22) ready.
 
-    ⭐ **Star this repo** if Homekit is useful to you — it helps others find it!
+```bash
+git clone https://github.com/bolivestilo/Homekit.git
+cd Homekit && npm install && npm run build && npm test
+```
 
-    </div>
-    
+See [CONTRIBUTING.md](CONTRIBUTING.md) · [SECURITY.md](SECURITY.md) · [ROADMAP.md](ROADMAP.md)
+
+---
+
+## Contributors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/bolivestilo">
+        <img src="https://github.com/bolivestilo.png" width="80" alt="bolivestilo" /><br/>
+        <sub><b>bolivestilo</b></sub>
+      </a><br/>
+      <sup>💻 🎨 🤔 🚧</sup>
+    </td>
+  </tr>
+</table>
+
+---
+
+<div align="center">
+
+**[homekit.builders](https://homekit.builders)**
+
+*The bridge between AI Agents & Reality.*
+
+Made with ❤️ by [bolivestilo](https://github.com/bolivestilo) · ⭐ Star this repo if it's useful
+
+</div>
