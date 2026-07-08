@@ -1,0 +1,22 @@
+{
+      "name": "@openclaw/homekit",
+      "version": "1.0.0",
+      "description": "@openclaw plugin for controlling Apple Home",
+      "homepage": "https://homekit.builders",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/bolivestilo/Homekit.git",
+        "directory": "packages/openclaw"
+      },
+      "author": "bolivestilo",
+      "license": "MIT",
+      "main": "./dist/index.js",
+      "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "typecheck": "tsc --noEmit"
+      },
+      "keywords": ["openclaw", "homekit", "apple-home", "plugin", "ai-agent"],
+      "engines": { "node": ">=18" }
+    }
+    

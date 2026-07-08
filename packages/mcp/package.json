@@ -1,0 +1,26 @@
+{
+      "name": "homekit-mcp",
+      "version": "1.0.0",
+      "description": "MCP server — control Apple Home with any AI agent",
+      "homepage": "https://homekit.builders",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/bolivestilo/Homekit.git",
+        "directory": "packages/mcp"
+      },
+      "author": "bolivestilo",
+      "license": "MIT",
+      "bin": {
+        "homekit-mcp": "./dist/index.js"
+      },
+      "main": "./dist/index.js",
+      "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "start": "node dist/index.js",
+        "typecheck": "tsc --noEmit"
+      },
+      "keywords": ["mcp", "homekit", "apple-home", "ai-agent", "model-context-protocol", "claude", "cursor"],
+      "engines": { "node": ">=18" }
+    }
+    

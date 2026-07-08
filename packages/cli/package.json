@@ -1,0 +1,26 @@
+{
+      "name": "homekit-cli",
+      "version": "1.0.0",
+      "description": "Control your Apple Home from the command line",
+      "homepage": "https://homekit.builders",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/bolivestilo/Homekit.git",
+        "directory": "packages/cli"
+      },
+      "author": "bolivestilo",
+      "license": "MIT",
+      "bin": {
+        "homekit": "./dist/index.js"
+      },
+      "main": "./dist/index.js",
+      "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "start": "node dist/index.js",
+        "typecheck": "tsc --noEmit"
+      },
+      "keywords": ["homekit", "apple-home", "cli", "smart-home", "macos", "mcp"],
+      "engines": { "node": ">=18" }
+    }
+    

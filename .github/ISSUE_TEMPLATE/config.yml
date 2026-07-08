@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+    contact_links:
+      - name: Documentation
+        url: https://homekit.builders/docs
+        about: Read the Homekit documentation
+      - name: Discussion
+        url: https://github.com/bolivestilo/Homekit/discussions
+        about: Ask questions and share ideas
+    

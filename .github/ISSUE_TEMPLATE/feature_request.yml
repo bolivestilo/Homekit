@@ -1,0 +1,40 @@
+name: Feature Request
+    description: Suggest a new feature or improvement
+    title: "[Feature]: "
+    labels: ["enhancement"]
+    assignees: ["bolivestilo"]
+
+    body:
+      - type: markdown
+        attributes:
+          value: Thanks for suggesting a feature!
+
+      - type: checkboxes
+        id: preflight
+        attributes:
+          label: Pre-flight checklist
+          options:
+            - label: I searched existing issues and this is not a duplicate
+              required: true
+            - label: I have read the ROADMAP
+              required: true
+
+      - type: textarea
+        id: problem
+        attributes:
+          label: Problem this solves
+        validations:
+          required: true
+
+      - type: textarea
+        id: solution
+        attributes:
+          label: Proposed solution
+        validations:
+          required: true
+
+      - type: textarea
+        id: alternatives
+        attributes:
+          label: Alternatives considered
+    
